@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список файлов Яндекс.Диска</title>
+</head>
+<body>
+    <h1>Список файлов и папок:</h1>
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file.name }}
+                {% if file.type == 'file' %}
+                    - <a href="/download?file_url={{ file.file }}" download>Скачать</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Назад</a>
+</body>
+</html>
